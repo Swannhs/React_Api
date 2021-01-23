@@ -1,24 +1,39 @@
 import React, {Component} from 'react';
-import Api from "./api/Api";
-import SearchBar from "./components/SearchBar";
-import ImageList from "./components/ImageList";
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import SearchImage from "./components/image/SearchImage";
+import SearchVideos from "./components/video/SearchVideos";
+
 
 class App extends Component {
-    state = {images: []}
-    onSearchSubmit = async (term) => {
-        const response = await Api.get('/search/photos', {
-            params: {query: term},
 
-        })
-        this.setState({images: response.data.results})
-    }
 
     render() {
         return (
-            <div>
-                <SearchBar onSubmit={this.onSearchSubmit} style={{marginTop: '10px'}}/>
-                <ImageList images={this.state.images}/>
-            </div>
+            <Router>
+                <div className='App'>
+                    <Route path='/' exact>
+                        <h1>Hello from Swann</h1>
+                        <h2>
+                            Search some image <Link to='/image'>here</Link><br/>
+                            Search for videos <Link to='/video'>here</Link>
+                        </h2>
+                    </Route>
+                    <Route path='/image' exact>
+                        <h1>Hello from Swann</h1>
+                        <h2>
+                            Back to <Link to='/'>Home</Link>?
+                        </h2>
+                        <SearchImage/>
+                    </Route>
+                    <Route path='/video' exact>
+                        <h1>Hello from Swann</h1>
+                        <h2>
+                            Back to <Link to='/'>Home</Link>?
+                        </h2>
+                        <SearchVideos/>
+                    </Route>
+                </div>
+            </Router>
         );
     }
 }
