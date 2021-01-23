@@ -1,5 +1,5 @@
 import './App.css';
-import ReactDom from 'react-dom';
+import SearchBar from "./components/SearchBar";
 
 function App() {
 window.navigator.geolocation.getCurrentPosition(
@@ -8,7 +8,7 @@ window.navigator.geolocation.getCurrentPosition(
 );
   return (
     <div className="App">
-
+      <SearchBar/>
     </div>
   );
 }
