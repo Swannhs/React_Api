@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import SearchImage from "./components/image/SearchImage";
-import SearchVideos from "./components/video/SearchVideos";
+import HandleVideo from "./components/video/HandleVideo";
 
 
 class App extends Component {
@@ -30,7 +30,7 @@ class App extends Component {
                         <h2>
                             Back to <Link to='/'>Home</Link>?
                         </h2>
-                        <SearchVideos/>
+                        <HandleVideo/>
                     </Route>
                 </div>
             </Router>
