@@ -1,16 +1,25 @@
-import './App.css';
+import React, {Component} from 'react';
+import Api from "./api/Api";
 import SearchBar from "./components/SearchBar";
 
-function App() {
-window.navigator.geolocation.getCurrentPosition(
-    position => console.log(position),
-    error => console.log(error)
-);
-  return (
-    <div className="App">
-      <SearchBar/>
-    </div>
-  );
+class App extends Component {
+    state = {images: []}
+    onSearchSubmit = async (term) => {
+        const response = await Api.get('/search/photos', {
+            params: {query: term},
+
+        })
+        this.setState({images: response.data.results})
+    }
+
+    render() {
+        return (
+            <div>
+                <SearchBar onSubmit={this.onSearchSubmit} style={{marginTop: '10px'}}/>
+                <p>Found: {this.state.images.length}</p>
+            </div>
+        );
+    }
 }
 
 export default App;
