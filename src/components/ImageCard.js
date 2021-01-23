@@ -6,9 +6,8 @@ class ImageCard extends Component {
 
         return (
             <div className="ui card">
-                <div className="content">
-                    <img className="ui avatar image" src={urls.regular}
-                         alt={description}/>
+                <div className="ui slide masked reveal image">
+                    <img src={urls.regular} className="visible content" alt={description}/>
                 </div>
             </div>
         );
