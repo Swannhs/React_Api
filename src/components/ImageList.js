@@ -1,13 +1,10 @@
 import React from 'react';
+import ImageCard from "./ImageCard";
 
 const ImageList = props => {
     return  props.images.map((image) => {
         return (
-            <div key={image.id}  className="ui card center aligned">
-                <div className="ui slide masked reveal image">
-                    <img src={image.urls.regular} className="visible content"/>
-                </div>
-            </div>
+            <ImageCard key={image.id} image={image}/>
         );
     })
 };
