@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
-import SearchImage from "./components/image/SearchImage";
+import HandleImage from "./components/image/HandleImage";
 import HandleVideo from "./components/video/HandleVideo";
 
 
@@ -23,7 +23,7 @@ class App extends Component {
                         <h2>
                             Back to <Link to='/'>Home</Link>?
                         </h2>
-                        <SearchImage/>
+                        <HandleImage/>
                     </Route>
                     <Route path='/video' exact>
                         <h1>Hello from Swann</h1>

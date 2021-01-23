@@ -3,7 +3,7 @@ import ImageApi from "../../api/ImageApi";
 import SearchBar from "./SearchBar";
 import ImageList from "./ImageList";
 
-class SearchImage extends Component {
+class HandleImage extends Component {
     state = {images: []}
     onSearchSubmit = async (term) => {
         const response = await ImageApi.get('/search/photos', {
@@ -22,4 +22,4 @@ class SearchImage extends Component {
     }
 }
 
-export default SearchImage;
+export default HandleImage;

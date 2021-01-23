@@ -4,18 +4,25 @@ import YoutubeApi from "../../api/YoutubeApi";
 import VideoList from "./VideoList";
 
 class HandleVideo extends Component {
-    state = {videos : []}
+    state = {videos: [], selectedVideo: null}
     onTermSubmit = async term => {
-        const response = await YoutubeApi.get('/search',{
-            q: term
+        const response = await YoutubeApi.get('/search', {
+            params: {
+                q: term
+            }
         })
         this.setState({videos: response.data.items})
     }
+
+    onVideoSelect = (video) => {
+        console.log(video)
+    }
+
     render() {
         return (
             <div>
                 <SearchBarVideo type='text' onFormSubmit={this.onTermSubmit}/>
-                <VideoList videos={this.state.videos}/>
+                <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videos}/>
             </div>
         );
     }
